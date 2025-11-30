@@ -794,3 +794,37 @@ h1, h2, h3, h4 {
     white-space: nowrap;
     border: 0;
 }
+
+/* ==========================================
+   Notifications
+   ========================================== */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    color: var(--color-white);
+    font-weight: 500;
+    z-index: 10000;
+    animation: slideIn var(--transition-normal);
+    max-width: 300px;
+}
+
+.notification-success {
+    background: #28a745;
+}
+
+.notification-error {
+    background: #dc3545;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}

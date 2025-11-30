@@ -3,6 +3,9 @@
  * Handles interactivity and dynamic features
  */
 
+// Animation duration constant for consistency
+const ANIMATION_DURATION = '0.5s';
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all modules
     initNavigation();
@@ -10,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGemFilter();
     initContactForm();
     initSmoothScroll();
+    initScrollAnimations();
 });
 
 /**
@@ -112,7 +116,7 @@ function initGemFilter() {
                 
                 if (filterValue === 'all' || category === filterValue) {
                     card.classList.remove('hidden');
-                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                    card.style.animation = `fadeInUp ${ANIMATION_DURATION} ease forwards`;
                 } else {
                     card.classList.add('hidden');
                 }
@@ -202,7 +206,7 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Show notification
+// Show notification - uses CSS classes from styles.css
 function showNotification(message, type) {
     // Remove existing notification
     const existingNotification = document.querySelector('.notification');
@@ -210,49 +214,17 @@ function showNotification(message, type) {
         existingNotification.remove();
     }
     
-    // Create notification element
+    // Create notification element using CSS classes
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 10000;
-        animation: slideIn 0.3s ease;
-        max-width: 300px;
-        ${type === 'success' ? 'background: #28a745;' : 'background: #dc3545;'}
-    `;
-    
-    // Add animation keyframes if not exists
-    if (!document.querySelector('#notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notification-styles';
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
     
     document.body.appendChild(notification);
     
     // Remove notification after delay
     setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease forwards';
-        setTimeout(() => notification.remove(), 300);
+        notification.style.animation = `slideOut ${ANIMATION_DURATION} ease forwards`;
+        setTimeout(() => notification.remove(), 500);
     }, 4000);
 }
 
@@ -263,7 +235,7 @@ function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                entry.target.style.animation = `fadeInUp ${ANIMATION_DURATION} ease forwards`;
                 observer.unobserve(entry.target);
             }
         });
@@ -274,6 +246,3 @@ function initScrollAnimations() {
     
     animatedElements.forEach(el => observer.observe(el));
 }
-
-// Initialize scroll animations after page load
-window.addEventListener('load', initScrollAnimations);
