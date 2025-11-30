@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Our Collection - Radiant Gems{% endblock %}
+
+{% block content %}
+<section class="products-page">
+    <div class="container">
+        <h1>Our Jewelry Collection</h1>
+        <p class="page-description">Browse our exquisite collection of fine jewelry, each piece carefully selected for its beauty and quality.</p>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="all">All Categories</option>
+                    <option value="necklaces">Necklaces</option>
+                    <option value="earrings">Earrings</option>
+                    <option value="rings">Rings</option>
+                    <option value="bracelets">Bracelets</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="material">Material:</label>
+                <select id="material" name="material">
+                    <option value="all">All Materials</option>
+                    <option value="gold">Gold</option>
+                    <option value="silver">Silver</option>
+                    <option value="platinum">Platinum</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price-range">Price Range:</label>
+                <select id="price-range" name="price-range">
+                    <option value="all">All Prices</option>
+                    <option value="0-500">$0 - $500</option>
+                    <option value="500-1000">$500 - $1,000</option>
+                    <option value="1000-2000">$1,000 - $2,000</option>
+                    <option value="2000+">$2,000+</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            {% for product in products %}
+            <div class="product-card" data-category="{{ product.category }}" data-material="{{ product.material }}" data-price="{{ product.price }}">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='images/products/' + product.image) }}" alt="{{ product.name }}">
+                    <div class="product-overlay">
+                        <a href="{{ url_for('product_detail', product_id=product.id) }}" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">${{ "%.2f"|format(product.price) }}</p>
+                    <p class="material">{{ product.material }} • {{ product.gemstone }}</p>
+                    <p class="description">{{ product.description[:100] }}...</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryFilter = document.getElementById('category');
+    const materialFilter = document.getElementById('material');
+    const priceFilter = document.getElementById('price-range');
+    const productCards = document.querySelectorAll('.product-card');
+
+    function filterProducts() {
+        const selectedCategory = categoryFilter.value;
+        const selectedMaterial = materialFilter.value;
+        const selectedPriceRange = priceFilter.value;
+
+        productCards.forEach(card => {
+            const category = card.dataset.category;
+            const material = card.dataset.material;
+            const price = parseFloat(card.dataset.price);
+
+            let showCard = true;
+
+            if (selectedCategory !== 'all' && category !== selectedCategory) {
+                showCard = false;
+            }
+
+            if (selectedMaterial !== 'all' && material !== selectedMaterial) {
+                showCard = false;
+            }
+
+            if (selectedPriceRange !== 'all') {
+                const [min, max] = selectedPriceRange.split('-').map(p => p === '+' ? Infinity : parseFloat(p));
+                if (price < min || price > max) {
+                    showCard = false;
+                }
+            }
+
+            card.style.display = showCard ? 'block' : 'none';
+        });
+    }
+
+    categoryFilter.addEventListener('change', filterProducts);
+    materialFilter.addEventListener('change', filterProducts);
+    priceFilter.addEventListener('change', filterProducts);
+});
+</script>
+{% endblock %}

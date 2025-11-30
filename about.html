@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Radiant Gems{% endblock %}
+
+{% block content %}
+<section class="about-page">
+    <div class="container">
+        <h1>About Radiant Gems</h1>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Founded in 2010, Radiant Gems has been dedicated to bringing exceptional jewelry craftsmanship to discerning customers worldwide. What started as a small family workshop has grown into a premier destination for fine jewelry, combining traditional techniques with contemporary design.</p>
+
+                <p>Our passion for excellence drives everything we do. From selecting the finest gemstones to employing master craftsmen, we ensure that every piece that bears our name meets the highest standards of quality and beauty.</p>
+
+                <h2>Our Commitment</h2>
+                <p>At Radiant Gems, we believe that jewelry should not only be beautiful but also meaningful. Each piece tells a story and becomes a cherished part of our customers' lives. We're committed to:</p>
+                <ul>
+                    <li>Using only ethically sourced materials</li>
+                    <li>Supporting skilled artisans and fair labor practices</li>
+                    <li>Providing exceptional customer service</li>
+                    <li>Creating timeless pieces that stand the test of time</li>
+                </ul>
+            </div>
+
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/about-workshop.jpg') }}" alt="Our jewelry workshop">
+            </div>
+        </div>
+
+        <div class="values-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">💎</div>
+                    <h3>Quality</h3>
+                    <p>We never compromise on quality. Every piece undergoes rigorous inspection and meets international standards.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🎨</div>
+                    <h3>Craftsmanship</h3>
+                    <p>Our master jewelers bring decades of experience and artistic vision to every creation.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Integrity</h3>
+                    <p>We build lasting relationships through honesty, transparency, and ethical business practices.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌟</div>
+                    <h3>Innovation</h3>
+                    <p>We blend traditional techniques with modern design to create unique, contemporary pieces.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="{{ url_for('static', filename='images/team-founder.jpg') }}" alt="Sarah Johnson - Founder">
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p class="member-role">Founder & CEO</p>
+                    <p>With over 20 years in the jewelry industry, Sarah leads our vision for exceptional craftsmanship and customer experience.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="{{ url_for('static', filename='images/team-master.jpg') }}" alt="Michael Chen - Master Jeweler">
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p class="member-role">Master Jeweler</p>
+                    <p>Michael's expertise in stone setting and metalwork brings our designs to life with precision and artistry.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="{{ url_for('static', filename='images/team-designer.jpg') }}" alt="Emma Rodriguez - Designer">
+                    </div>
+                    <h3>Emma Rodriguez</h3>
+                    <p class="member-role">Lead Designer</p>
+                    <p>Emma's innovative designs blend classic elegance with contemporary trends, creating pieces for every occasion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

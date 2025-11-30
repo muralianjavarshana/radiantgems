@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - Radiant Gems{% endblock %}
+
+{% block content %}
+<section class="product-detail">
+    <div class="container">
+        <div class="product-detail-grid">
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="{{ url_for('static', filename='images/products/' + product.image) }}" alt="{{ product.name }}" id="main-product-image">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="{{ url_for('static', filename='images/products/' + product.image) }}" alt="{{ product.name }}" class="thumbnail active" data-src="{{ url_for('static', filename='images/products/' + product.image) }}">
+                    <!-- Add more thumbnails if available -->
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>{{ product.name }}</h1>
+                <p class="price">${{ "%.2f"|format(product.price) }}</p>
+                <div class="product-meta">
+                    <span class="material"><strong>Material:</strong> {{ product.material }}</span>
+                    <span class="gemstone"><strong>Gemstone:</strong> {{ product.gemstone }}</span>
+                    <span class="category"><strong>Category:</strong> {{ product.category.title() }}</span>
+                </div>
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="product-details">
+                    <h3>Details</h3>
+                    <ul>
+                        <li><strong>Weight:</strong> {{ product.weight }}g</li>
+                        <li><strong>Care Instructions:</strong> Clean with mild soap and water, store in a jewelry box</li>
+                        <li><strong>Origin:</strong> Handcrafted in our workshop</li>
+                    </ul>
+                </div>
+                <div class="purchase-section">
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart({{ product.id }}, {{ product.price }})">
+                        Add to Cart - ${{ "%.2f"|format(product.price) }}
+                    </button>
+                    <p class="shipping-info">Free shipping on orders over $500</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-products">
+            <h2>You Might Also Like</h2>
+            <div class="products-grid">
+                {% for related_product in related_products %}
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ url_for('static', filename='images/products/' + related_product.image) }}" alt="{{ related_product.name }}">
+                        <div class="product-overlay">
+                            <a href="{{ url_for('product_detail', product_id=related_product.id) }}" class="view-btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>{{ related_product.name }}</h3>
+                        <p class="price">${{ "%.2f"|format(related_product.price) }}</p>
+                        <p class="material">{{ related_product.material }} • {{ related_product.gemstone }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function addToCart(productId, price) {
+    const quantity = document.getElementById('quantity').value;
+    // In a real application, this would send an AJAX request to add the item to the cart
+    alert(`Added ${quantity} x ${productId} to cart for $${(price * quantity).toFixed(2)}`);
+}
+
+// Thumbnail image switching
+document.addEventListener('DOMContentLoaded', function() {
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('main-product-image');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            mainImage.src = this.dataset.src;
+            thumbnails.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+</script>
+{% endblock %}
