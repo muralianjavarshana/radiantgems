@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RadiantGems - Discover exquisite gemstones and fine jewelry. Premium collection of diamonds, rubies, sapphires and more.">
+    <title>RadiantGems - Exquisite Gemstones &amp; Fine Jewelry</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <span class="logo-icon">💎</span>
+                <span class="logo-text">RadiantGems</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#collection" class="nav-link">Collection</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1 class="hero-title">Discover the Beauty of <span class="highlight">Rare Gems</span></h1>
+            <p class="hero-subtitle">Exquisite gemstones and fine jewelry, handpicked for those who appreciate timeless elegance</p>
+            <a href="#collection" class="btn btn-primary">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured" class="featured">
+        <div class="container">
+            <h2 class="section-title">Why Choose RadiantGems</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Authentic Gems</h3>
+                    <p>Every gemstone is certified and comes with authenticity documentation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Expert Curation</h3>
+                    <p>Our gemologists carefully select only the finest quality stones</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Ethically Sourced</h3>
+                    <p>Committed to responsible sourcing and sustainable practices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Secure Delivery</h3>
+                    <p>Fully insured worldwide shipping with discrete packaging</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <p class="section-subtitle">Explore our exquisite selection of precious gemstones</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="diamonds">Diamonds</button>
+                <button class="filter-btn" data-filter="rubies">Rubies</button>
+                <button class="filter-btn" data-filter="sapphires">Sapphires</button>
+                <button class="filter-btn" data-filter="emeralds">Emeralds</button>
+            </div>
+
+            <!-- Gems Grid -->
+            <div class="gems-grid">
+                <div class="gem-card" data-category="diamonds">
+                    <div class="gem-image" style="background: linear-gradient(135deg, #e8e8e8 0%, #ffffff 50%, #b8b8b8 100%);">
+                        <span class="gem-emoji">💎</span>
+                    </div>
+                    <div class="gem-info">
+                        <h3>Brilliant Cut Diamond</h3>
+                        <p class="gem-carat">2.5 Carats</p>
+                        <p class="gem-price">$12,500</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+
+                <div class="gem-card" data-category="rubies">
+                    <div class="gem-image" style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 50%, #990000 100%);">
+                        <span class="gem-emoji">❤️</span>
+                    </div>
+                    <div class="gem-info">
+                        <h3>Burmese Ruby</h3>
+                        <p class="gem-carat">1.8 Carats</p>
+                        <p class="gem-price">$8,200</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+
+                <div class="gem-card" data-category="sapphires">
+                    <div class="gem-image" style="background: linear-gradient(135deg, #4444ff 0%, #0000cc 50%, #000099 100%);">
+                        <span class="gem-emoji">💙</span>
+                    </div>
+                    <div class="gem-info">
+                        <h3>Ceylon Sapphire</h3>
+                        <p class="gem-carat">3.2 Carats</p>
+                        <p class="gem-price">$15,800</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+
+                <div class="gem-card" data-category="emeralds">
+                    <div class="gem-image" style="background: linear-gradient(135deg, #44ff44 0%, #00cc00 50%, #009900 100%);">
+                        <span class="gem-emoji">💚</span>
+                    </div>
+                    <div class="gem-info">
+                        <h3>Colombian Emerald</h3>
+                        <p class="gem-carat">2.1 Carats</p>
+                        <p class="gem-price">$9,500</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+
+                <div class="gem-card" data-category="diamonds">
+                    <div class="gem-image" style="background: linear-gradient(135deg, #fffacd 0%, #ffd700 50%, #daa520 100%);">
+                        <span class="gem-emoji">💛</span>
+                    </div>
+                    <div class="gem-info">
+                        <h3>Fancy Yellow Diamond</h3>
+                        <p class="gem-carat">1.5 Carats</p>
+                        <p class="gem-price">$18,000</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+
+                <div class="gem-card" data-category="sapphires">
+                    <div class="gem-image" style="background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 50%, #ff1493 100%);">
+                        <span class="gem-emoji">💖</span>
+                    </div>
+                    <div class="gem-info">
+                        <h3>Pink Sapphire</h3>
+                        <p class="gem-carat">2.0 Carats</p>
+                        <p class="gem-price">$7,200</p>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About RadiantGems</h2>
+                    <p>For over two decades, RadiantGems has been a trusted name in the world of fine gemstones and jewelry. Our passion for exceptional quality and craftsmanship drives everything we do.</p>
+                    <p>Each piece in our collection is carefully selected by our team of expert gemologists who travel the world to source the finest gems from ethical suppliers.</p>
+                    <ul class="about-list">
+                        <li>✓ GIA Certified Gemstones</li>
+                        <li>✓ 30-Day Return Policy</li>
+                        <li>✓ Lifetime Authenticity Guarantee</li>
+                        <li>✓ Expert Customer Service</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <span>💎✨💍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The diamond engagement ring I purchased exceeded all my expectations. The quality and brilliance are simply stunning!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-avatar">👨</span>
+                        <div>
+                            <h4>Michael R.</h4>
+                            <span>New York, NY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Outstanding service and the most beautiful sapphire I've ever seen. RadiantGems has earned a customer for life."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-avatar">👩</span>
+                        <div>
+                            <h4>Sarah L.</h4>
+                            <span>London, UK</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The authentication and certification process gave me complete confidence in my purchase. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-avatar">👨</span>
+                        <div>
+                            <h4>David K.</h4>
+                            <span>Sydney, AU</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Gemstone Avenue<br>Jewelry District, NY 10001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@radiantgems.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">💎</span>
+                    <span class="logo-text">RadiantGems</span>
+                    <p>Exquisite gemstones and fine jewelry since 2000.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#collection">Collection</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Custom Design</a></li>
+                        <li><a href="#">Appraisal</a></li>
+                        <li><a href="#">Certification</a></li>
+                        <li><a href="#">Repair</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RadiantGems. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
